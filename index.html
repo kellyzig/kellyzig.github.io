@@ -1,0 +1,49 @@
+<html>
+   <head>
+      <title>Google Charts Tutorial</title>
+      <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart']});     
+      </script>
+   </head>
+   
+   <body>
+      <div id = "container" style = "width: 100%; height: 100%; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['DMA', 'Score'],
+               ['New York, NY',  3000],
+               ['Chicago, IL',  2000],
+               ['Phoenix (Prescott), AZ',  1170],
+               ['Miami-Ft. Lauderdale, FL',  1250],
+               ['Houston, TX',  1530],
+               ['Los Angeles, CA',  1500],		
+               ['Seattle-Tacoma, WA',  1000],
+               ['Atlanta, GA',  1170],
+               ['Washington, DC (Hagerstown, MD)',  1250],
+               ['Philadelphia, PA',  1530]
+            ]);
+
+            var options = {
+		title: 'Testing', 
+		colors: ['FF0000'],
+		legend: 'none',
+		'backgroundColor': 'transparent',
+		tooltip: {isHtml: true},
+		titleTextStyle: {color: '#ffffff'},
+		hAxis: { textStyle: {color:'#ffffff'}},
+		vAxis: {textPosition: 'none'}
+	    }; 
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.ColumnChart(document.getElementById('container'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+   </body>
+</html>
